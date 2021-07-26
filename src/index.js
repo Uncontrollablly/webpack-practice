@@ -1,17 +1,23 @@
 import _ from "lodash";
-import printMe from "./print.js";
 
 function component() {
   const element = document.createElement("div");
-  const btn = document.createElement("button");
+  const button = document.createElement("button");
+  const br = document.createElement("br");
 
-  // lodash 在当前 script 中使用 import 引入
+  button.innerHTML = "Click me and look at the console!";
   element.innerHTML = _.join(["Hello", "webpack"], " ");
+  element.appendChild(br);
+  element.appendChild(button);
 
-  btn.innerHTML = "Click me and check the console!";
-  btn.onclick = printMe;
+  // Note that because a network request is involved, some indication
+  // of loading would need to be shown in a production-level site/app.
+  button.onclick = (e) =>
+    import(/* webpackChunkName: "print" */ "./print").then((module) => {
+      const print = module.default;
 
-  element.appendChild(btn);
+      print();
+    });
 
   return element;
 }

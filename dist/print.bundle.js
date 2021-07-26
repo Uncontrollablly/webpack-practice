@@ -1,1 +1,1 @@
-(()=>{"use strict"})();
+(self.webpackChunkwebpack_practice=self.webpackChunkwebpack_practice||[]).push([[740],{569:(e,t,o)=>{"use strict";o.r(t),o.d(t,{default:()=>c}),console.log("The print.js module has loaded! See the network tab in dev tools...");const c=()=>{console.log('Button Clicked: Here\'s "some text"!')}}}]);
